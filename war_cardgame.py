@@ -1,7 +1,8 @@
-from random import shuffle
-
+import random
 SUITE ='H D S C'.split()
 RANKS = '2 3 4 5 6 7 8 9 10 J Q K A'.split()
+mylist = [(s,r) for s in SUITE for r in RANKS]
+random.shuffle(mylist)
 class Deck:
     def __init__(self):
         print("Creating New Ordered Deck!")
@@ -9,10 +10,11 @@ class Deck:
     
     def shuffle(self):
         print("Shuffling Deck")
-        shuffle(self.allcards)
+        self.allcards=mylist
+      
 
     def split_in_half(self):
-        return (self.allcards[:26],self.allcards[26:])
+        return (mylist[:26],mylist[26:])
 class Hand:
     def __init__(self,cards):
         self.cards=cards
@@ -47,6 +49,7 @@ print("Welcome To The War Card Game!")
 d=Deck()
 d.shuffle
 half1,half2 = d.split_in_half()
+
 comp = Player("computer",Hand(half1))
 name = input('Whats Your Name?')
 user = Player(name,Hand(half2))
