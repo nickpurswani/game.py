@@ -1,3 +1,5 @@
+#Random guessing game
+#here you can choose between 1-10 and if your guess is correct you win!
 import random
 def get_guess():
     return list(input("What is your guess?"))
@@ -7,7 +9,7 @@ def genrate_code():
     return digits[:3]
 def genrate_clues(code,user_guess):
     if user_guess==code:
-        return "code cracked!"
+        return "code cracked!"#win
     clues=[]
     for ind,num in enumerate(user_guess):
         if num==code[ind]:
